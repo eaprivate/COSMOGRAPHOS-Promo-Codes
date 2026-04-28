@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Your Promo Code</title>
+    <title>Cosmographos Early Access</title>
     <style>
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -20,7 +20,22 @@
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        h1 { color: #2c3e50; }
+        h1 { color: #2c3e50; margin-bottom: 10px; }
+        .links-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #fdfaf0;
+            border-radius: 10px;
+            border: 1px solid #f39c12;
+        }
+        .links-section a {
+            display: block;
+            margin: 10px 0;
+            color: #d35400;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .links-section a:hover { text-decoration: underline; }
         #code-display { 
             font-size: 28px; 
             font-weight: bold; 
@@ -29,41 +44,55 @@
             background: #e8f4fd;
             border: 2px dashed #3498db;
             color: #2980b9;
-            display: none; /* Κρυφό μέχρι να πατηθεί το κουμπί */
+            display: none; 
+            word-wrap: break-word;
         }
         button { 
             padding: 15px 30px; 
             font-size: 18px; 
             cursor: pointer; 
-            background: #3498db; 
+            background: #27ae60; 
             color: white; 
             border: none; 
             border-radius: 8px;
             transition: background 0.3s;
+            font-weight: bold;
         }
-        button:hover { background: #2980b9; }
+        button:hover { background: #219150; }
         .instruction {
-            margin-top: 20px;
+            margin-top: 25px;
             font-size: 14px;
             color: #7f8c8d;
-            font-style: italic;
+            line-height: 1.6;
+        }
+        .note {
+            font-weight: bold;
+            color: #e67e22;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Καλώς ήρθατε στο Early Access!</h1>
-        <p>Πατήστε το κουμπί για να λάβετε έναν μοναδικό κωδικό προσφοράς για την εφαρμογή:</p>
+        <h1>Welcome to Cosmographos!</h1>
         
-        <button onclick="getCode()">Λήψη Κωδικού</button>
+        <!-- Links Section -->
+        <div class="links-section">
+            <p><span class="note">Crucial Steps:</span></p>
+            <a href="https://groups.google.com/u/1/g/testing_curatedartworks4u" target="_blank">1. Join the Testing Group</a>
+            <a href="https://play.google.com/store/apps/details?id=com.cosmographos" target="_blank">2. Download the App on Play Store</a>
+        </div>
+
+        <p>Click the button below to receive your promo code:</p>
+        
+        <button onclick="getCode()">Cosmographos Early Bird</button>
         
         <div id="code-display"></div>
         
-        <!-- Η οδηγία που ζήτησες -->
-        <p class="instruction">
-            Αν ο κωδικός που εμφανίστηκε έχει ήδη χρησιμοποιηθεί, παρακαλούμε πατήστε ξανά το κουμπί για έναν νέο.
-        </p>
+        <div class="instruction">
+            <p><span class="note">How to use:</span> Open the Play Store &gt; Profile &gt; Payments &amp; subscriptions &gt; Redeem code.</p>
+            <p><i>If the code displayed has already been used, please click the button again for a new one.</i></p>
+        </div>
     </div>
 
     <script>
@@ -76,11 +105,11 @@
                     
                     const display = document.getElementById('code-display');
                     display.innerText = selectedCode;
-                    display.style.display = 'block'; // Εμφάνιση του πλαισίου
+                    display.style.display = 'block';
                 })
                 .catch(err => {
-                    console.error('Σφάλμα κατά τη φόρτωση:', err);
-                    alert('Προέκυψε σφάλμα. Βεβαιωθείτε ότι το αρχείο codes.json υπάρχει στο σωστό σημείο.');
+                    console.error('Error loading codes:', err);
+                    alert('An error occurred. Please make sure codes.json exists in the repository.');
                 });
         }
     </script>
