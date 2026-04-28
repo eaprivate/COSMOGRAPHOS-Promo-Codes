@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmographos Early Access</title>
+    <title>COSMOGRAPHOS Member Access</title>
     <style>
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -20,22 +20,18 @@
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        h1 { color: #2c3e50; margin-bottom: 10px; }
-        .links-section {
+        h1 { color: #2c3e50; margin-bottom: 10px; text-transform: uppercase; }
+        
+        .welcome-banner {
             margin-bottom: 25px;
             padding: 15px;
-            background: #fdfaf0;
+            background: #eef9f1;
             border-radius: 10px;
-            border: 1px solid #f39c12;
-        }
-        .links-section a {
-            display: block;
-            margin: 10px 0;
-            color: #d35400;
-            text-decoration: none;
+            border: 1px solid #27ae60;
+            color: #219150;
             font-weight: bold;
         }
-        .links-section a:hover { text-decoration: underline; }
+
         #code-display { 
             font-size: 28px; 
             font-weight: bold; 
@@ -47,6 +43,7 @@
             display: none; 
             word-wrap: break-word;
         }
+
         button { 
             padding: 15px 30px; 
             font-size: 18px; 
@@ -57,41 +54,67 @@
             border-radius: 8px;
             transition: background 0.3s;
             font-weight: bold;
+            text-transform: uppercase;
+            width: 100%;
         }
         button:hover { background: #219150; }
-        .instruction {
+
+        .instruction-list {
             margin-top: 25px;
-            font-size: 14px;
+            font-size: 15px;
             color: #7f8c8d;
             line-height: 1.6;
+            text-align: left;
         }
-        .note {
+        .instruction-list b { color: #2c3e50; }
+        
+        .app-download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            color: #3498db;
+            text-decoration: none;
             font-weight: bold;
-            color: #e67e22;
         }
+        .app-download-btn:hover { text-decoration: underline; }
+
+        .back-link {
+            margin-top: 30px;
+            font-size: 12px;
+        }
+        .back-link a { color: #bdc3c7; text-decoration: none; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Welcome to Cosmographos!</h1>
+        <h1>COSMOGRAPHOS</h1>
         
-        <!-- Links Section -->
-        <div class="links-section">
-            <p><span class="note">Crucial Steps:</span></p>
-            <a href="https://groups.google.com/u/1/g/testing_curatedartworks4u" target="_blank">1. Join the Testing Group</a>
-            <a href="https://play.google.com/store/apps/details?id=com.cosmographos" target="_blank">2. Download the App on Play Store</a>
+        <div class="welcome-banner">
+            MEMBER EXCLUSIVE ACCESS
         </div>
 
-        <p>Click the button below to receive your promo code:</p>
+        <p>Thank you for being part of our testing group! Claim your promo code below to unlock the full version for free.</p>
         
-        <button onclick="getCode()">Cosmographos Early Bird</button>
+        <button onclick="getCode()">COSMOGRAPHOS Early Bird</button>
         
         <div id="code-display"></div>
         
-        <div class="instruction">
-            <p><span class="note">How to use:</span> Open the Play Store &gt; Profile &gt; Payments &amp; subscriptions &gt; Redeem code.</p>
-            <p><i>If the code displayed has already been used, please click the button again for a new one.</i></p>
+        <div class="instruction-list">
+            <p><b>Next Steps:</b></p>
+            <ol>
+                <li><b>Copy</b> the code generated above.</li>
+                <li>Open the <b>Play Store</b> &gt; Profile &gt; Payments &amp; subscriptions &gt; Redeem code.</li>
+                <li>Once redeemed, download the app: <br>
+                    <a href="https://play.google.com/store/apps/details?id=com.cosmographos" class="app-download-btn" target="_blank">→ Download COSMOGRAPHOS on Play Store</a>
+                </li>
+            </ol>
+            <p style="text-align: center; font-size: 13px; margin-top: 20px;">
+                <i>Note: If a code is already used, simply click the button again for a new one.</i>
+            </p>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">Return to main page</a>
         </div>
     </div>
 
@@ -108,8 +131,8 @@
                     display.style.display = 'block';
                 })
                 .catch(err => {
-                    console.error('Error loading codes:', err);
-                    alert('An error occurred. Please make sure codes.json exists in the repository.');
+                    console.error('Error:', err);
+                    alert('Please check your connection and ensure codes.json is available.');
                 });
         }
     </script>
